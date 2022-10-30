@@ -43,7 +43,7 @@ export const App = () => {
     )
       .then(res => res.json())
       .then(image => {
-        setImage([...images, ...image.hits]);
+        setImage(prevImages => [...prevImages, ...image.hits]);
         setimageAdd(image.hits);
       })
       .catch(error => {
