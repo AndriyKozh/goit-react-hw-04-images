@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 
 import { ImageGalleryBlock, ImageGalleryImg } from './ImageGallery.style';
-const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
+const ImageGalleryItem = ({ webformatURL, largeImageURL, createId }) => {
   const [modalEl, setModalEl] = useState(false);
 
   const toggleModal = () => {
@@ -11,7 +11,7 @@ const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
   };
 
   return (
-    <ImageGalleryBlock>
+    <ImageGalleryBlock key={createId}>
       <ImageGalleryImg onClick={toggleModal} src={webformatURL} alt="image" />
       {modalEl && <Modal onClose={toggleModal} largeImageURL={largeImageURL} />}
     </ImageGalleryBlock>

@@ -3,28 +3,24 @@ import Button from 'components/Button/Button';
 import { GalleryBlock } from './ImageGallery.style';
 import Loader from 'components/Loader/Loader';
 import PropTypes from 'prop-types';
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
+// import { Report } from 'notiflix/build/notiflix-report-aio';
 
-const ImageGallery = ({ images, handlerButton, imageAdd, isLoading }) => {
+const ImageGallery = ({ images, isLoading, createId }) => {
   return (
     <>
       {!isLoading ? (
         <div>
-          <GalleryBlock key={images.id}>
-            {images.map(({ id, webformatURL, largeImageURL }) => (
+          <GalleryBlock>
+            {images.map(({ webformatURL, largeImageURL }, index) => (
               <ImageGalleryItem
-                key={id}
+                key={index}
+                createId={createId}
                 webformatURL={webformatURL}
                 largeImageURL={largeImageURL}
               />
             ))}
           </GalleryBlock>
-
-          {imageAdd.length < 12 ? (
-            Notiflix.Notify.failure('Your request has not reach a goal')
-          ) : (
-            <Button handlerButton={handlerButton} />
-          )}
         </div>
       ) : (
         <Loader />
@@ -35,9 +31,10 @@ const ImageGallery = ({ images, handlerButton, imageAdd, isLoading }) => {
 
 // images, handlerButton, imageAdd, isLoading
 ImageGallery.propType = {
-  images: PropTypes.string.isRequired,
+  images: PropTypes.array.isRequired,
   handlerButton: PropTypes.func.isRequired,
   imageAdd: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  createId: PropTypes.string.isRequired,
 };
 export default ImageGallery;

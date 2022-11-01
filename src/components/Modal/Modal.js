@@ -6,13 +6,12 @@ const Modal = ({ largeImageURL, onClose }) => {
   useEffect(() => {
     window.addEventListener('keydown', onCloseEscape);
     return () => window.removeEventListener('keydown', onCloseEscape);
-  });
-
-  function onCloseEscape(ev) {
-    if (ev.code === 'Escape') {
-      onClose();
+    function onCloseEscape(ev) {
+      if (ev.code === 'Escape') {
+        onClose();
+      }
     }
-  }
+  }, [onClose]);
 
   const closeBackdrop = ev => {
     if (ev.currentTarget === ev.target) {

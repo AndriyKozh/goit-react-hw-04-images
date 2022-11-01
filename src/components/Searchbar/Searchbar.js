@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   InputBlock,
   SearchbarForm,
@@ -22,6 +24,10 @@ const Searchbar = ({ searchImage }) => {
       </InputBlock>
     </>
   );
+};
+
+Searchbar.propTypes = {
+  searchImage: PropTypes.func.isRequired,
 };
 
 export default Searchbar;
