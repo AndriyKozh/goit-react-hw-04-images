@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Searchbar from './Searchbar/Searchbar';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import Notiflix from 'notiflix';
 import Button from './Button/Button';
 
 const KEY_API = '30453708-4bc301c6df3fbfbb2df0be580';
