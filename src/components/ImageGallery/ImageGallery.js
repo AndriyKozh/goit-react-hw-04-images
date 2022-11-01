@@ -1,5 +1,4 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
-import Button from 'components/Button/Button';
 import { GalleryBlock } from './ImageGallery.style';
 import Loader from 'components/Loader/Loader';
 import PropTypes from 'prop-types';
